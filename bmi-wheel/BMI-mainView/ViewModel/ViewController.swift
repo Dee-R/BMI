@@ -10,8 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
   
- 
-  //  var containerWheel: UIView! = nil
+  @IBOutlet weak var slider: UISlider!
+  
+  var imc: Float =  17.5
+  
   var balanceW: BalanceWeight! = nil
   var rectWindow: CGRect {
     return view.bounds
@@ -28,10 +30,19 @@ class ViewController: UIViewController {
     // 📢 : balance itself. // ✔︎
     balanceW =  BalanceWeight(frame: rectContainerWheel)
     self.view.addSubview(balanceW)
+    
+    slider.setValue(0.5, animated: false)
   }
+  override func loadView() {
+    super.loadView()
+    slider.setValue(-90, animated: false)
+    slider.setNeedsDisplay()
+  }
+  
+  
   @IBAction func sliderChanged(_ sender: UISlider) {
-    sender.minimumValue = 0
-    sender.maximumValue = 180
+    sender.minimumValue = -90
+    sender.maximumValue = 90
     print(sender.value)
     balanceW.animationArrow(with: CGFloat(sender.value))
   }
@@ -51,6 +62,16 @@ class BalanceWeight: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     initBalanceWeight()
+    
+    // set initial position
+    self.arrow.setAnchorPoint(CGPoint(x: 0.5, y: 1))
+    
+    
+    let rotationPosition: CGFloat = CGFloat(scaleNeedle(imc: 50))
+    
+    
+    
+    self.arrow.transform = CATransform3DMakeRotation( .pi * ( rotationPosition - (90)) / 180   , 0, 0, 1)
   }
   required init?(coder: NSCoder) {
     super.init(coder: coder)
@@ -201,6 +222,52 @@ class BalanceWeight: UIView {
 //
 //    }
   }
+  
+  func scaleNeedle(imc : Float) -> Float{
+       let a: [Float] = [16.0, 18.5]
+       let b: [Float] = [18.5, 25]
+       let c: [Float] = [25, 40]
+       
+      if imc < 16 {
+        return 0
+      }
+      if imc <= a[1] {
+        let old = (imc - a[0]) / (a[1] - a[0])
+        let new = ((60 - 0) * old) + 0
+        return new
+      }
+      if (imc <= b[1]) {
+        let old = (imc - b[0]) / (b[1] - b[0])
+        let new = ((120 - 60) * old) + 60
+        return new
+        
+      }
+      if (imc <= c[1]) {
+        let old = (imc - c[0]) / (c[1] - c[0])
+        let new = ((180 - 120) * old) + 120
+        return new
+      }
+      if imc > 40 {
+        return 180
+      }
+      return 0
+      
+  //    if imc > 40 {
+  //      return 180
+  //    } else if (imc <= 40.0) {
+  //      let old = (imc - c[0]) / (c[1] - c[0])
+  //      let new = ((180 - 0) * old) + 0
+  //      return new
+  //    } else if (imc <= 25.0) {
+  //      let old = (imc - b[0]) / (b[1] - b[0])
+  //      let new = ((120 - 0) * old) + 0
+  //      return new
+  //    } else if (imc <= 18.5) {
+  //
+  //    } else {
+  //      return 0
+  //    }
+     }
 }
 
 extension UIColor {
