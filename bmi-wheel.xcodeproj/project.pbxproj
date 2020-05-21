@@ -79,12 +79,10 @@
 		930CFFC52472E5D000E3E3CC /* bmi-wheel */ = {
 			isa = PBXGroup;
 			children = (
-				930CFFC62472E5D000E3E3CC /* AppDelegate.swift */,
-				930CFFC82472E5D000E3E3CC /* SceneDelegate.swift */,
-				930CFFCA2472E5D000E3E3CC /* ViewController.swift */,
-				930CFFCC2472E5D000E3E3CC /* Main.storyboard */,
-				930CFFCF2472E5D200E3E3CC /* Assets.xcassets */,
-				930CFFD12472E5D200E3E3CC /* LaunchScreen.storyboard */,
+				937EBAE124770DF600B76F5D /* BMI-mainView */,
+				937EBADE24770DA600B76F5D /* App */,
+				937EBADF24770DBE00B76F5D /* Storyboard */,
+				937EBAE024770DD100B76F5D /* Ressources */,
 				930CFFD42472E5D200E3E3CC /* Info.plist */,
 			);
 			path = "bmi-wheel";
@@ -97,6 +95,64 @@
 				937EBAD524770AA800B76F5D /* Info.plist */,
 			);
 			path = "bmi-Translate-Value-bmi-for-needle";
+			sourceTree = "<group>";
+		};
+		937EBADB24770CDA00B76F5D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		937EBADC24770CE500B76F5D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				930CFFCA2472E5D000E3E3CC /* ViewController.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		937EBADD24770CF100B76F5D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		937EBADE24770DA600B76F5D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				930CFFC62472E5D000E3E3CC /* AppDelegate.swift */,
+				930CFFC82472E5D000E3E3CC /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		937EBADF24770DBE00B76F5D /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				930CFFCC2472E5D000E3E3CC /* Main.storyboard */,
+				930CFFD12472E5D200E3E3CC /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		937EBAE024770DD100B76F5D /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				930CFFCF2472E5D200E3E3CC /* Assets.xcassets */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
+		937EBAE124770DF600B76F5D /* BMI-mainView */ = {
+			isa = PBXGroup;
+			children = (
+				937EBADD24770CF100B76F5D /* View */,
+				937EBADC24770CE500B76F5D /* ViewModel */,
+				937EBADB24770CDA00B76F5D /* Model */,
+			);
+			path = "BMI-mainView";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
