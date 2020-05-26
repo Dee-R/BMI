@@ -1,53 +1,12 @@
 //
-//  ViewController.swift
+//  BalanceWeight.swift
 //  bmi-wheel
 //
-//  Created by Eddy R on 18/05/2020.
+//  Created by Eddy R on 22/05/2020.
 //  Copyright © 2020 Eddy R. All rights reserved.
 //
 
 import UIKit
-
-class ViewController: UIViewController {
-  
-  @IBOutlet weak var slider: UISlider!
-  
-  var imc: Float =  17.5
-  
-  var balanceW: BalanceWeight! = nil
-  var rectWindow: CGRect {
-    return view.bounds
-  }
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    view.backgroundColor = UIColor.darkGray
-    // 📢 : rect for balanceWeight. // ✔︎
-    let margin: CGFloat = 0
-    let heightRectContainerWheel:CGFloat =  250
-    let widthRectContainerWheel: CGFloat = rectWindow.width - margin
-    let rectContainerWheel: CGRect = CGRect(x: 0 + margin / 2, y: view.frame.midY, width: widthRectContainerWheel, height: heightRectContainerWheel)
-    
-    // 📢 : balance itself. // ✔︎
-    balanceW =  BalanceWeight(frame: rectContainerWheel)
-    self.view.addSubview(balanceW)
-    
-    slider.setValue(0.5, animated: false)
-  }
-  override func loadView() {
-    super.loadView()
-    slider.setValue(-90, animated: false)
-    slider.setNeedsDisplay()
-  }
-  
-  
-  @IBAction func sliderChanged(_ sender: UISlider) {
-    sender.minimumValue = -90
-    sender.maximumValue = 90
-    print(sender.value)
-    balanceW.animationArrow(with: CGFloat(sender.value))
-  }
-}
-
 
 class BalanceWeight: UIView {
   // MARK: - 🉑 Setting
@@ -57,20 +16,18 @@ class BalanceWeight: UIView {
     let y = self.bounds.size.height
     return CGPoint(x: x, y: y)
   }
-  // MARK: - ⚙️ Init
-  // ✔︎
+  // MARK: - ⚙️ Init // ✔︎
   override init(frame: CGRect) {
     super.init(frame: frame)
+    self.layer.masksToBounds = true
     initBalanceWeight()
     
     // set initial position
     self.arrow.setAnchorPoint(CGPoint(x: 0.5, y: 1))
     
-    
-    let rotationPosition: CGFloat = CGFloat(scaleNeedle(imc: 50))
-    
-    
-    
+    // set de position by default
+    // STOP HERE 🚦🌁🏝☀️🏖🐬🏝🏞🏜🚦
+    let rotationPosition: CGFloat = CGFloat(CalculNeedle.calculAndScale(imc: 18.5))
     self.arrow.transform = CATransform3DMakeRotation( .pi * ( rotationPosition - (90)) / 180   , 0, 0, 1)
   }
   required init?(coder: NSCoder) {
@@ -178,7 +135,7 @@ class BalanceWeight: UIView {
     var baseTriangleForArrow: CGFloat = 0
     
     // you can custom them
-    let rangeValueRadiusScale: CGFloat = 0.75 // top of triangle 1.0 = 100% | 0.75 = 75%
+    let rangeValueRadiusScale: CGFloat = 0.80 // top of triangle 1.0 = 100% | 0.75 = 75% default
     let rangeValueBaseTriangleScale: CGFloat = 1 / 2 // base of triangle ( left and right )
     
     // ✔︎
@@ -192,11 +149,13 @@ class BalanceWeight: UIView {
     
     let path = UIBezierPath()
     //    arrow.backgroundColor = UIColor.blue.cgColor
-    arrow.fillColor = UIColor.blue.cgColor
+    arrow.fillColor = UIColor.white.cgColor
     path.move(to: CGPoint(x: centerPoint.x - baseTriangleForArrow, y: bounds.height)) // ✘
     path.addArc(withCenter: centerPoint, radius: radius, startAngle: 3 * .pi / 2 , endAngle: 3 * .pi / 2, clockwise: true)
     path.addLine(to: CGPoint(x: centerPoint.x + baseTriangleForArrow, y: bounds.height)) // ✘
     arrow.path = path.cgPath
+    
+    
   }
   private func showMiddlePoint() {
     let middleView = UIView(frame: CGRect(origin: centerPoint, size: CGSize(width: 5, height: 5)))
@@ -214,7 +173,7 @@ class BalanceWeight: UIView {
     
   }
   /// animation for arrow
-  fileprivate func animationArrow(with rotation: CGFloat = .pi) {
+   func animationArrow(with rotation: CGFloat = .pi) {
     // ⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬ animation
     self.arrow.setAnchorPoint(CGPoint(x: 0.5, y: 1))
     self.arrow.transform = CATransform3DMakeRotation(.pi * rotation / 180 , 0, 0, 1)
@@ -320,6 +279,3 @@ extension CALayer {
     self.anchorPoint = newAnchorPoint
   }
 }
-
-
-
