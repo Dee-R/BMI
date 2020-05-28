@@ -17,6 +17,7 @@
 		937EBAD424770AA800B76F5D /* bmi_Translate_Value_bmi_for_needle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EBAD324770AA800B76F5D /* bmi_Translate_Value_bmi_for_needle.swift */; };
 		937EBAE32477146200B76F5D /* CalculNeedle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EBAE22477146200B76F5D /* CalculNeedle.swift */; };
 		937EBAE52477179700B76F5D /* Foo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EBAE42477179700B76F5D /* Foo.swift */; };
+		93E4441B24804E8900A0D330 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E4441A24804E8900A0D330 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		937EBAD524770AA800B76F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		937EBAE22477146200B76F5D /* CalculNeedle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculNeedle.swift; sourceTree = "<group>"; };
 		937EBAE42477179700B76F5D /* Foo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foo.swift; sourceTree = "<group>"; };
+		93E4441A24804E8900A0D330 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		930CFFC52472E5D000E3E3CC /* bmi-wheel */ = {
 			isa = PBXGroup;
 			children = (
+				93E4441924804E7100A0D330 /* Helper */,
 				937EBAE42477179700B76F5D /* Foo.swift */,
 				937EBAE124770DF600B76F5D /* BMI-mainView */,
 				937EBADE24770DA600B76F5D /* App */,
@@ -162,6 +165,14 @@
 				937EBADB24770CDA00B76F5D /* Model */,
 			);
 			path = "BMI-mainView";
+			sourceTree = "<group>";
+		};
+		93E4441924804E7100A0D330 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				93E4441A24804E8900A0D330 /* GradientView.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +279,7 @@
 				93649B7E2477F73D007BB234 /* BalanceWeight.swift in Sources */,
 				930CFFCB2472E5D000E3E3CC /* ViewController.swift in Sources */,
 				930CFFC72472E5D000E3E3CC /* AppDelegate.swift in Sources */,
+				93E4441B24804E8900A0D330 /* GradientView.swift in Sources */,
 				937EBAE52477179700B76F5D /* Foo.swift in Sources */,
 				930CFFC92472E5D000E3E3CC /* SceneDelegate.swift in Sources */,
 				937EBAE32477146200B76F5D /* CalculNeedle.swift in Sources */,

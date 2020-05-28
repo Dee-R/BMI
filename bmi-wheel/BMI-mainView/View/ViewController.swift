@@ -22,8 +22,11 @@ class ViewController: UIViewController {
   // MARK: - ✅ Cycle Life
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = UIColor.white
-//    view.backgroundColor = UIColor.darkGray
+    
+    
+//    view.backgroundColor = UIColor.init(red: 106/255, green: 206/255, blue: 227/255, alpha: 1)
+    view.backgroundColor = UIColor(red: 0/255, green: 228/255, blue: 249/255, alpha: 1)
+    
     buildWheelWeight()
   }
   
@@ -57,6 +60,9 @@ class ViewController: UIViewController {
     sender.maximumValue = 90
     print(sender.value)
     balanceW.animationArrow(with: CGFloat(sender.value))
+  }
+  func gradientColor(){
+    
   }
 }
 
