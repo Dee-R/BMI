@@ -9,14 +9,16 @@
 /* Begin PBXBuildFile section */
 		930CFFC72472E5D000E3E3CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930CFFC62472E5D000E3E3CC /* AppDelegate.swift */; };
 		930CFFC92472E5D000E3E3CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930CFFC82472E5D000E3E3CC /* SceneDelegate.swift */; };
-		930CFFCB2472E5D000E3E3CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930CFFCA2472E5D000E3E3CC /* ViewController.swift */; };
+		930CFFCB2472E5D000E3E3CC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930CFFCA2472E5D000E3E3CC /* MainViewController.swift */; };
 		930CFFD02472E5D200E3E3CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930CFFCF2472E5D200E3E3CC /* Assets.xcassets */; };
 		930CFFD32472E5D200E3E3CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 930CFFD12472E5D200E3E3CC /* LaunchScreen.storyboard */; };
 		935BD3C4247D1A6E003F23D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 935BD3C3247D1A6E003F23D9 /* Main.storyboard */; };
+		9362DB9824878250009D43FD /* ModelTopContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362DB9724878250009D43FD /* ModelTopContainer.swift */; };
 		93649B7E2477F73D007BB234 /* BalanceWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93649B7D2477F73D007BB234 /* BalanceWeight.swift */; };
+		9369A6FE24882A1000B28B1B /* CurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9369A6FD24882A1000B28B1B /* CurveView.swift */; };
+		937A4326248111A400B0CC4C /* ViewModelTopContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A4325248111A400B0CC4C /* ViewModelTopContainer.swift */; };
 		937EBAD424770AA800B76F5D /* bmi_Translate_Value_bmi_for_needle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EBAD324770AA800B76F5D /* bmi_Translate_Value_bmi_for_needle.swift */; };
 		937EBAE32477146200B76F5D /* CalculNeedle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EBAE22477146200B76F5D /* CalculNeedle.swift */; };
-		937EBAE52477179700B76F5D /* Foo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EBAE42477179700B76F5D /* Foo.swift */; };
 		93E4441B24804E8900A0D330 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E4441A24804E8900A0D330 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,17 +36,19 @@
 		930CFFC32472E5D000E3E3CC /* bmi-wheel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bmi-wheel.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		930CFFC62472E5D000E3E3CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		930CFFC82472E5D000E3E3CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		930CFFCA2472E5D000E3E3CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		930CFFCA2472E5D000E3E3CC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		930CFFCF2472E5D200E3E3CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		930CFFD22472E5D200E3E3CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		930CFFD42472E5D200E3E3CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		935BD3C3247D1A6E003F23D9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9362DB9724878250009D43FD /* ModelTopContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTopContainer.swift; sourceTree = "<group>"; };
 		93649B7D2477F73D007BB234 /* BalanceWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceWeight.swift; sourceTree = "<group>"; };
+		9369A6FD24882A1000B28B1B /* CurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurveView.swift; sourceTree = "<group>"; };
+		937A4325248111A400B0CC4C /* ViewModelTopContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewModelTopContainer.swift; path = "bmi-wheel/Helper/ViewModelTopContainer.swift"; sourceTree = SOURCE_ROOT; };
 		937EBAD124770AA800B76F5D /* bmi-Translate-Value-bmi-for-needle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bmi-Translate-Value-bmi-for-needle.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		937EBAD324770AA800B76F5D /* bmi_Translate_Value_bmi_for_needle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bmi_Translate_Value_bmi_for_needle.swift; sourceTree = "<group>"; };
 		937EBAD524770AA800B76F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		937EBAE22477146200B76F5D /* CalculNeedle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculNeedle.swift; sourceTree = "<group>"; };
-		937EBAE42477179700B76F5D /* Foo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foo.swift; sourceTree = "<group>"; };
 		93E4441A24804E8900A0D330 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,15 +91,57 @@
 		930CFFC52472E5D000E3E3CC /* bmi-wheel */ = {
 			isa = PBXGroup;
 			children = (
-				93E4441924804E7100A0D330 /* Helper */,
-				937EBAE42477179700B76F5D /* Foo.swift */,
-				937EBAE124770DF600B76F5D /* BMI-mainView */,
-				937EBADE24770DA600B76F5D /* App */,
+				937A43282481286800B0CC4C /* View Controllers */,
 				937EBADF24770DBE00B76F5D /* Storyboard */,
+				93E4441924804E7100A0D330 /* Helper */,
+				937A43292481293400B0CC4C /* Delegates */,
 				937EBAE024770DD100B76F5D /* Ressources */,
-				930CFFD42472E5D200E3E3CC /* Info.plist */,
+				937A43272481282F00B0CC4C /* Supporting Files */,
 			);
 			path = "bmi-wheel";
+			sourceTree = "<group>";
+		};
+		937A43272481282F00B0CC4C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				930CFFD42472E5D200E3E3CC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		937A43282481286800B0CC4C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				937EBAE124770DF600B76F5D /* BMI-mainView */,
+				937A432A24812B1B00B0CC4C /* BMI-BalanceWeight */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		937A43292481293400B0CC4C /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				930CFFC62472E5D000E3E3CC /* AppDelegate.swift */,
+				930CFFC82472E5D000E3E3CC /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		937A432A24812B1B00B0CC4C /* BMI-BalanceWeight */ = {
+			isa = PBXGroup;
+			children = (
+				93A45750248705ED003DF73B /* View */,
+				93A4574F248705CF003DF73B /* Model */,
+				937A432B24812B7800B0CC4C /* View Models */,
+			);
+			path = "BMI-BalanceWeight";
+			sourceTree = "<group>";
+		};
+		937A432B24812B7800B0CC4C /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		937EBAD224770AA800B76F5D /* bmi-Translate-Value-bmi-for-needle */ = {
@@ -110,34 +156,17 @@
 		937EBADB24770CDA00B76F5D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				937EBAE22477146200B76F5D /* CalculNeedle.swift */,
-				93649B7D2477F73D007BB234 /* BalanceWeight.swift */,
+				9362DB9724878250009D43FD /* ModelTopContainer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		937EBADC24770CE500B76F5D /* ViewModel */ = {
+		937EBADC24770CE500B76F5D /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				937A4325248111A400B0CC4C /* ViewModelTopContainer.swift */,
 			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		937EBADD24770CF100B76F5D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				930CFFCA2472E5D000E3E3CC /* ViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		937EBADE24770DA600B76F5D /* App */ = {
-			isa = PBXGroup;
-			children = (
-				930CFFC62472E5D000E3E3CC /* AppDelegate.swift */,
-				930CFFC82472E5D000E3E3CC /* SceneDelegate.swift */,
-			);
-			path = App;
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		937EBADF24770DBE00B76F5D /* Storyboard */ = {
@@ -160,11 +189,36 @@
 		937EBAE124770DF600B76F5D /* BMI-mainView */ = {
 			isa = PBXGroup;
 			children = (
-				937EBADD24770CF100B76F5D /* View */,
-				937EBADC24770CE500B76F5D /* ViewModel */,
+				93A4574E24870522003DF73B /* View */,
+				937EBADC24770CE500B76F5D /* View Models */,
 				937EBADB24770CDA00B76F5D /* Model */,
 			);
 			path = "BMI-mainView";
+			sourceTree = "<group>";
+		};
+		93A4574E24870522003DF73B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				930CFFCA2472E5D000E3E3CC /* MainViewController.swift */,
+				9369A6FD24882A1000B28B1B /* CurveView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		93A4574F248705CF003DF73B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		93A45750248705ED003DF73B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				93649B7D2477F73D007BB234 /* BalanceWeight.swift */,
+				937EBAE22477146200B76F5D /* CalculNeedle.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		93E4441924804E7100A0D330 /* Helper */ = {
@@ -276,13 +330,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9369A6FE24882A1000B28B1B /* CurveView.swift in Sources */,
 				93649B7E2477F73D007BB234 /* BalanceWeight.swift in Sources */,
-				930CFFCB2472E5D000E3E3CC /* ViewController.swift in Sources */,
+				9362DB9824878250009D43FD /* ModelTopContainer.swift in Sources */,
+				930CFFCB2472E5D000E3E3CC /* MainViewController.swift in Sources */,
 				930CFFC72472E5D000E3E3CC /* AppDelegate.swift in Sources */,
 				93E4441B24804E8900A0D330 /* GradientView.swift in Sources */,
-				937EBAE52477179700B76F5D /* Foo.swift in Sources */,
 				930CFFC92472E5D000E3E3CC /* SceneDelegate.swift in Sources */,
 				937EBAE32477146200B76F5D /* CalculNeedle.swift in Sources */,
+				937A4326248111A400B0CC4C /* ViewModelTopContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

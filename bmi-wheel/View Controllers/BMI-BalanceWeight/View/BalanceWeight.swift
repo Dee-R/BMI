@@ -16,6 +16,7 @@ class BalanceWeight: UIView {
     let y = self.bounds.size.height
     return CGPoint(x: x, y: y)
   }
+  private (set) var getRadiant:CGFloat?
   // MARK: - ⚙️ Init // ✔︎
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -30,13 +31,15 @@ class BalanceWeight: UIView {
     let rotationPosition: CGFloat = CGFloat(CalculNeedle.calculAndScale(imc: 18.5))
     self.arrow.transform = CATransform3DMakeRotation( .pi * ( rotationPosition - (90)) / 180   , 0, 0, 1)
   }
+  
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     initBalanceWeight()
   }
+  
   private func initBalanceWeight() {
-    print("  💟 setUpBalanceWeight 💟")
-    layer.backgroundColor = UIColor.gray.cgColor
+//    print("  💟 setUpBalanceWeight 💟")
+//    layer.backgroundColor = UIColor.gray.cgColor
     
     buildRadianCircle()
     showMiddlePoint()
@@ -53,7 +56,7 @@ class BalanceWeight: UIView {
     makeArrow()
   }
   private func makeRadianCircle(angleStart: CGFloat, angleEnd: CGFloat, color:CGColor = UIColor.orange.cgColor) {
-    print("\(#line) ▓▓▓▓▓▓▓▓ ( ˘ ³˘)♥ ▓▓▓▓▓▓▓▓  func \(#function)")
+//    print("\(#line) ▓▓▓▓▓▓▓▓ ( ˘ ³˘)♥ ▓▓▓▓▓▓▓▓  func \(#function)")
     // ✔︎
     // creation - position - addition - configuration
     let balance = CAShapeLayer()
@@ -65,6 +68,7 @@ class BalanceWeight: UIView {
 
     // MARK: - 🉑 Setting
     let radius = bounds.height >= bounds.width / 2 ? bounds.width / 2 : bounds.height
+    getRadiant = radius
     
     let path = UIBezierPath()
     path.move(to: centerPoint)
@@ -74,7 +78,7 @@ class BalanceWeight: UIView {
   }
   private func makeEdgeBetweenCircle(edge e: CGFloat, color:CGColor = UIColor.white.cgColor) {
     // ✔︎
-    print("\(#line) ▓▓▓▓▓▓▓▓ ( ˘ ³˘)♥ ▓▓▓▓▓▓▓▓  func \(#function)")
+//    print("\(#line) ▓▓▓▓▓▓▓▓ ( ˘ ³˘)♥ ▓▓▓▓▓▓▓▓  func \(#function)")
     let edge = CAShapeLayer()
     edge.frame = self.bounds
     edge.backgroundColor = UIColor.clear.cgColor
@@ -103,14 +107,14 @@ class BalanceWeight: UIView {
     // MARK: - 🉑 Setting
     var radius:CGFloat = 0
     if bounds.height >= bounds.width / 2 {
-      print("  💟 A height est superieur ou egal a :  width / 2 💟")
-      print("  💟🐝\(#line)💟▓▒░ height - width ░▒▓💟",bounds.height, bounds.width / 2,"💟")
-      print("  💟🐝\(#line)💟▓▒░ radius vaut  ░▒▓💟",bounds.width / 2,"💟")
+//      print("  💟 A height est superieur ou egal a :  width / 2 💟")
+//      print("  💟🐝\(#line)💟▓▒░ height - width ░▒▓💟",bounds.height, bounds.width / 2,"💟")
+//      print("  💟🐝\(#line)💟▓▒░ radius vaut  ░▒▓💟",bounds.width / 2,"💟")
       radius = (bounds.width / 2) * 0.66
     } else {
-      print("  💟 B height est inferieur a :  width / 2 💟")
-      print("  💟🐝\(#line)💟▓▒░ height - width ░▒▓💟",bounds.height, bounds.width / 2,"💟")
-      print("  💟🐝\(#line)💟▓▒░ radius vaut  ░▒▓💟",bounds.height,"💟")
+//      print("  💟 B height est inferieur a :  width / 2 💟")
+//      print("  💟🐝\(#line)💟▓▒░ height - width ░▒▓💟",bounds.height, bounds.width / 2,"💟")
+//      print("  💟🐝\(#line)💟▓▒░ radius vaut  ░▒▓💟",bounds.height,"💟")
       radius = (bounds.height) * 0.66
     }
     

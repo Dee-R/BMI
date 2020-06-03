@@ -7,21 +7,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="1y5-YJ-FfK">
             <objects>
-                <viewController id="4Cj-PW-gV8" customClass="ViewController" customModule="bmi_wheel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4Cj-PW-gV8" customClass="MainViewController" customModule="bmi_wheel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qte-6z-gbt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="veK-ci-m1J">
-                                <rect key="frame" x="4" y="-105" width="302" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="sliderChanged:" destination="4Cj-PW-gV8" eventType="valueChanged" id="jQo-mP-x6P"/>
-                                </connections>
-                            </slider>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJW-v0-1S8" userLabel="MainView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <subviews>
@@ -56,7 +49,7 @@
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BODY MASS INDEX" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.20000000000000001" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26G-hI-X1H">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BODY MASS INDEX" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="26G-hI-X1H">
                                                 <rect key="frame" x="53.5" y="91" width="213" height="43"/>
                                                 <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="45"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,7 +79,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="kWz-Ji-ZhJ" userLabel="StackViewBottom">
                                                         <rect key="frame" x="0.0" y="39.5" width="304" height="17"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="7" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ib0-aG-yZh">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="center" minimumFontSize="7" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ib0-aG-yZh">
                                                                 <rect key="frame" x="0.0" y="0.0" width="86.5" height="17"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" red="0.4201042056" green="0.8065807223" blue="0.8902184367" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -99,7 +92,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Weight (Kg)" textAlignment="center" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xGf-Zr-9Bw">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Weight (Kg)" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xGf-Zr-9Bw">
                                                                 <rect key="frame" x="108.5" y="0.0" width="87" height="17"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" red="0.4201042056" green="0.8065807223" blue="0.8902184367" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -112,7 +105,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Height (cm)" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="NdC-Xw-KFR">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Height (cm)" textAlignment="center" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="NdC-Xw-KFR">
                                                                 <rect key="frame" x="217.5" y="0.0" width="86.5" height="17"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" red="0.4201042056" green="0.8065807223" blue="0.8902184367" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -166,13 +159,33 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s0z-yz-YMk" userLabel="ViewBottom" customClass="GradientView" customModule="bmi_wheel" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="373.5" width="320" height="106.5"/>
-                                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t2i-ZM-uay" userLabel="ViewMiddle">
                                         <rect key="frame" x="0.0" y="213.5" width="320" height="160"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SmV-Bc-pmj" userLabel="subViewMiddle01">
+                                                <rect key="frame" x="0.0" y="1.5" width="320" height="158.5"/>
+                                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yTh-pw-1u8" userLabel="subViewMiddle00" customClass="CurveView" customModule="bmi_wheel" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="1.5"/>
+                                                <color key="backgroundColor" red="0.0" green="0.89411764709999997" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="yTh-pw-1u8" secondAttribute="trailing" id="5ht-cM-77E"/>
+                                            <constraint firstItem="yTh-pw-1u8" firstAttribute="leading" secondItem="t2i-ZM-uay" secondAttribute="leading" id="9cw-rm-MYr"/>
+                                            <constraint firstAttribute="trailing" secondItem="SmV-Bc-pmj" secondAttribute="trailing" id="Esz-9v-8Ro"/>
+                                            <constraint firstItem="yTh-pw-1u8" firstAttribute="top" secondItem="t2i-ZM-uay" secondAttribute="top" id="JBL-Zw-AT0"/>
+                                            <constraint firstItem="SmV-Bc-pmj" firstAttribute="leading" secondItem="t2i-ZM-uay" secondAttribute="leading" id="RIs-6j-ysw"/>
+                                            <constraint firstItem="SmV-Bc-pmj" firstAttribute="top" secondItem="yTh-pw-1u8" secondAttribute="bottom" id="WMx-qb-wWy"/>
+                                            <constraint firstItem="yTh-pw-1u8" firstAttribute="height" secondItem="t2i-ZM-uay" secondAttribute="height" multiplier="0.01" id="pzf-sS-RJh"/>
+                                            <constraint firstAttribute="bottom" secondItem="SmV-Bc-pmj" secondAttribute="bottom" id="uUX-wg-85V"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s0z-yz-YMk" userLabel="ViewBottom">
+                                        <rect key="frame" x="0.0" y="373.5" width="320" height="106.5"/>
+                                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -203,7 +216,12 @@
                         <viewLayoutGuide key="safeArea" id="6Rc-bL-Wb7"/>
                     </view>
                     <connections>
-                        <outlet property="slider" destination="veK-ci-m1J" id="sOe-y6-wqb"/>
+                        <outlet property="age" destination="Ib0-aG-yZh" id="F2d-uy-dKu"/>
+                        <outlet property="containerMiddle" destination="t2i-ZM-uay" id="xJJ-R3-XSp"/>
+                        <outlet property="height" destination="NdC-Xw-KFR" id="3ro-Zr-wAU"/>
+                        <outlet property="mainTitle" destination="26G-hI-X1H" id="MAg-cD-zr4"/>
+                        <outlet property="subViewMiddel01" destination="SmV-Bc-pmj" id="lkX-xT-2HV"/>
+                        <outlet property="weight" destination="xGf-Zr-9Bw" id="KAx-g1-dAZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gak-et-OmW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
