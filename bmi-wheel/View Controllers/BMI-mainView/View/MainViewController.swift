@@ -54,7 +54,7 @@ class MainViewController: UIViewController {
   }
   fileprivate func setBackgroundColorMainViewController() {
     // UIView TOP
-    view.backgroundColor = UIColor(red: 0/255, green: 228/255, blue: 249/255, alpha: 1)
+    //view.backgroundColor = UIColor(red: 0/255, green: 228/255, blue: 249/255, alpha: 1)
   }
   fileprivate func buildWheelWheight() {
     let m :CGFloat = containerMiddle.frame.width * 0.08 // margin
