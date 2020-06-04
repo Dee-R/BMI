@@ -30,6 +30,7 @@ class MainViewController: UIViewController {
   // MARK: - ✅ View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    print("\(#line) ▓ ( ˘ ³˘)♥ ▓▓ [ \(showClass) \(#function) ]")
     // Top container
     viewModelTopContainer.viewDidLoad() // ✔︎
     setupUIContainerTop() // ✔︎
@@ -39,7 +40,9 @@ class MainViewController: UIViewController {
   }
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    print("\(#line) ▓ ( ˘ ³˘)♥ ▓▓ [ \(showClass) \(#function) ]")
     buildWheelWheight() // ✔︎
+    
   }
   
   // MARK: - 💻 Own F
@@ -57,11 +60,13 @@ class MainViewController: UIViewController {
     //view.backgroundColor = UIColor(red: 0/255, green: 228/255, blue: 249/255, alpha: 1)
   }
   fileprivate func buildWheelWheight() {
-    let m :CGFloat = containerMiddle.frame.width * 0.08 // margin
+    let m :CGFloat = containerMiddle.frame.width * 0.0 // margin default 0.08
     let y :CGFloat = 0
     let w = containerMiddle.frame.width
     let h = containerMiddle.frame.height
     balanceWeightView =  BalanceWeight(frame: CGRect(x: 0 + m, y: y, width: w - (m * 2) , height: h))
+//    balanceWeightView.makeTextOnRadian()
+    
     // align the wheel in middle in the containerMiddle // ✔︎
 //    balanceWeightView.frame.origin.y = (balanceWeightView.getRadiant! - h) / 2
     self.subViewMiddel01.addSubview(balanceWeightView)

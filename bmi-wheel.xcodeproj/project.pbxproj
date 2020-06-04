@@ -20,6 +20,7 @@
 		937EBAD424770AA800B76F5D /* bmi_Translate_Value_bmi_for_needle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EBAD324770AA800B76F5D /* bmi_Translate_Value_bmi_for_needle.swift */; };
 		937EBAE32477146200B76F5D /* CalculNeedle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EBAE22477146200B76F5D /* CalculNeedle.swift */; };
 		93E4441B24804E8900A0D330 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E4441A24804E8900A0D330 /* GradientView.swift */; };
+		93EA988524894E7300F786B4 /* DrawTextOnArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EA988424894E7300F786B4 /* DrawTextOnArc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		937EBAD524770AA800B76F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		937EBAE22477146200B76F5D /* CalculNeedle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculNeedle.swift; sourceTree = "<group>"; };
 		93E4441A24804E8900A0D330 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		93EA988424894E7300F786B4 /* DrawTextOnArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawTextOnArc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				937EBAE124770DF600B76F5D /* BMI-mainView */,
-				937A432A24812B1B00B0CC4C /* BMI-BalanceWeight */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -125,23 +126,6 @@
 				930CFFC82472E5D000E3E3CC /* SceneDelegate.swift */,
 			);
 			path = Delegates;
-			sourceTree = "<group>";
-		};
-		937A432A24812B1B00B0CC4C /* BMI-BalanceWeight */ = {
-			isa = PBXGroup;
-			children = (
-				93A45750248705ED003DF73B /* View */,
-				93A4574F248705CF003DF73B /* Model */,
-				937A432B24812B7800B0CC4C /* View Models */,
-			);
-			path = "BMI-BalanceWeight";
-			sourceTree = "<group>";
-		};
-		937A432B24812B7800B0CC4C /* View Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View Models";
 			sourceTree = "<group>";
 		};
 		937EBAD224770AA800B76F5D /* bmi-Translate-Value-bmi-for-needle */ = {
@@ -201,22 +185,9 @@
 			children = (
 				930CFFCA2472E5D000E3E3CC /* MainViewController.swift */,
 				9369A6FD24882A1000B28B1B /* CurveView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		93A4574F248705CF003DF73B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		93A45750248705ED003DF73B /* View */ = {
-			isa = PBXGroup;
-			children = (
 				93649B7D2477F73D007BB234 /* BalanceWeight.swift */,
 				937EBAE22477146200B76F5D /* CalculNeedle.swift */,
+				93EA988424894E7300F786B4 /* DrawTextOnArc.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -332,6 +303,7 @@
 			files = (
 				9369A6FE24882A1000B28B1B /* CurveView.swift in Sources */,
 				93649B7E2477F73D007BB234 /* BalanceWeight.swift in Sources */,
+				93EA988524894E7300F786B4 /* DrawTextOnArc.swift in Sources */,
 				9362DB9824878250009D43FD /* ModelTopContainer.swift in Sources */,
 				930CFFCB2472E5D000E3E3CC /* MainViewController.swift in Sources */,
 				930CFFC72472E5D000E3E3CC /* AppDelegate.swift in Sources */,
