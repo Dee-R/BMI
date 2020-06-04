@@ -44,7 +44,6 @@ class DrawTextOnArc {
           let x = radius * cos(radAngle + (letterAngle / 2))
           let y = radius * sin(radAngle + (letterAngle / 2))
           
-          print(x, y)
           // calcul right position
           // draw each char on arc
           let singleChar = drawCharacter(text: letter, frameChar: CGRect(
@@ -67,8 +66,8 @@ class DrawTextOnArc {
   /** embed char in layer. */
   private func drawCharacter(text: NSAttributedString, frameChar: CGRect)-> CATextLayer {
     let textLayer = CATextLayer()
+    
     if (frameChar.origin.x.isNaN && frameChar.origin.x.isNaN) {
-      print(true)
       textLayer.frame = CGRect(
         origin: CGPoint(x: 0, y: 0),
         size: frameChar.size)
