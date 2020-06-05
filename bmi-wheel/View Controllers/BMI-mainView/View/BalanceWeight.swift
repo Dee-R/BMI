@@ -61,6 +61,10 @@ class BalanceWeight: UIView {
     maskRadians()
     makeNumbertOnRadians()
     
+    
+    
+    bmiView()
+    
   }
   
   
@@ -159,74 +163,74 @@ class BalanceWeight: UIView {
 //                  angle: 180,
 //                  radius: radiusRadiansColored )
   }
-    private func makeNumbertOnRadians(){
-      var radius:CGFloat = 0
-      if bounds.height >= bounds.width / 2 {
-        //      print("  💟 A height est superieur ou egal a :  width / 2 💟")
-        //      print("  💟🐝\(#line)💟▓▒░ height - width ░▒▓💟",bounds.height, bounds.width / 2,"💟")
-        //      print("  💟🐝\(#line)💟▓▒░ radius vaut  ░▒▓💟",bounds.width / 2,"💟")
-        radius = (bounds.width / 2) * 0.66
-      } else {
-        //      print("  💟 B height est inferieur a :  width / 2 💟")
-        //      print("  💟🐝\(#line)💟▓▒░ height - width ░▒▓💟",bounds.height, bounds.width / 2,"💟")
-        //      print("  💟🐝\(#line)💟▓▒░ radius vaut  ░▒▓💟",bounds.height,"💟")
-        radius = (bounds.height) * 0.66
+  private func makeNumbertOnRadians(){
+    var radius:CGFloat = 0
+    if bounds.height >= bounds.width / 2 {
+      //      print("  💟 A height est superieur ou egal a :  width / 2 💟")
+      //      print("  💟🐝\(#line)💟▓▒░ height - width ░▒▓💟",bounds.height, bounds.width / 2,"💟")
+      //      print("  💟🐝\(#line)💟▓▒░ radius vaut  ░▒▓💟",bounds.width / 2,"💟")
+      radius = (bounds.width / 2) * 0.66
+    } else {
+      //      print("  💟 B height est inferieur a :  width / 2 💟")
+      //      print("  💟🐝\(#line)💟▓▒░ height - width ░▒▓💟",bounds.height, bounds.width / 2,"💟")
+      //      print("  💟🐝\(#line)💟▓▒░ radius vaut  ░▒▓💟",bounds.height,"💟")
+      radius = (bounds.height) * 0.66
+    }
+    
+//        let _: CGFloat = radians - (radians * 1/6)
+      
+      let configTextArc: [[String : Any]] = [
+        ["text" : "16.0",
+        "radius": radius - (radius * 1/12) ,
+        "angle" : 181,
+        "centered" : false,
+        "txtColor" : UIColor.black,
+        "txtSize": 15.0
+        ],
+        ["text" : "18.5",
+        "radius": radius - (radius * 1/12) ,
+        "angle" : 240,
+        "centered" : true,
+        "txtColor" : UIColor.black,
+        "txtSize": 15.0
+        ],
+        ["text" : "25.0",
+        "radius": radius - (radius * 1/12) ,
+        "angle" : 300,
+        "centered" : true,
+        "txtColor" : UIColor.black,
+        "txtSize": 15.0
+        ],
+        ["text" : "40.0",
+        "radius": radius - (radius * 1/12) ,
+        "angle" : 343,
+        "centered" : false,
+        "txtColor" : UIColor.black,
+        "txtSize": 15.0
+        ],
+      ]
+      
+      for i in 0..<configTextArc.count {
+        let text: NSAttributedString = NSAttributedString(string: configTextArc[i]["text"] as! String,
+            attributes: [NSAttributedString.Key.foregroundColor: configTextArc[i]["txtColor"] as! UIColor,
+                        NSAttributedString.Key.font: UIFont.systemFont(ofSize: CGFloat(configTextArc[i]["txtSize"] as! Double) )])
+            
+        let _ = DrawTextOnArc(on: self.layer,
+                          text: text,
+                          angle: CGFloat(configTextArc[i]["angle"] as! Int),
+                          radius: configTextArc[i]["radius"] as! CGFloat,
+                          textCenter: configTextArc[i]["centered"] as! Bool )
       }
       
-//        let _: CGFloat = radians - (radians * 1/6)
-        
-        let configTextArc: [[String : Any]] = [
-          ["text" : "16.0",
-          "radius": radius - (radius * 1/12) ,
-          "angle" : 181,
-          "centered" : false,
-          "txtColor" : UIColor.black,
-          "txtSize": 15.0
-          ],
-          ["text" : "18.5",
-          "radius": radius - (radius * 1/12) ,
-          "angle" : 240,
-          "centered" : true,
-          "txtColor" : UIColor.black,
-          "txtSize": 15.0
-          ],
-          ["text" : "25.0",
-          "radius": radius - (radius * 1/12) ,
-          "angle" : 300,
-          "centered" : true,
-          "txtColor" : UIColor.black,
-          "txtSize": 15.0
-          ],
-          ["text" : "40.0",
-          "radius": radius - (radius * 1/12) ,
-          "angle" : 343,
-          "centered" : false,
-          "txtColor" : UIColor.black,
-          "txtSize": 15.0
-          ],
-        ]
-        
-        for i in 0..<configTextArc.count {
-          let text: NSAttributedString = NSAttributedString(string: configTextArc[i]["text"] as! String,
-              attributes: [NSAttributedString.Key.foregroundColor: configTextArc[i]["txtColor"] as! UIColor,
-                          NSAttributedString.Key.font: UIFont.systemFont(ofSize: CGFloat(configTextArc[i]["txtSize"] as! Double) )])
-              
-          let _ = DrawTextOnArc(on: self.layer,
-                            text: text,
-                            angle: CGFloat(configTextArc[i]["angle"] as! Int),
-                            radius: configTextArc[i]["radius"] as! CGFloat,
-                            textCenter: configTextArc[i]["centered"] as! Bool )
-        }
-        
-        
-    //    let text: NSAttributedString = NSAttributedString(string: "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45",
-    //    attributes: [NSAttributedString.Key.foregroundColor: UIColor.black,
-    //                  NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)])
-    //    let _ = DrawTextOnArc(on: self.layer,
-    //                  text: text,
-    //                  angle: 180,
-    //                  radius: radiusRadiansColored )
-      }
+      
+  //    let text: NSAttributedString = NSAttributedString(string: "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45",
+  //    attributes: [NSAttributedString.Key.foregroundColor: UIColor.black,
+  //                  NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)])
+  //    let _ = DrawTextOnArc(on: self.layer,
+  //                  text: text,
+  //                  angle: 180,
+  //                  radius: radiusRadiansColored )
+    }
   private func maskRadians() {
     // ✔︎
     let mask = CAShapeLayer()
@@ -291,6 +295,59 @@ class BalanceWeight: UIView {
     
     
   }
+  
+  private func bmiView() {
+    let mask = CAShapeLayer()
+    mask.frame = self.bounds
+    mask.fillColor = UIColor.blue.cgColor
+    //mask.backgroundColor = UIColor.red.cgColor
+    self.layer.addSublayer(mask)
+    
+    // MARK: - 🉑 Setting
+    var radius:CGFloat = 0
+    if bounds.height >= bounds.width / 2 {
+      //      print("  💟 A height est superieur ou egal a :  width / 2 💟")
+      //      print("  💟🐝\(#line)💟▓▒░ height - width ░▒▓💟",bounds.height, bounds.width / 2,"💟")
+      //      print("  💟🐝\(#line)💟▓▒░ radius vaut  ░▒▓💟",bounds.width / 2,"💟")
+      radius = (bounds.width / 2) * 0.66
+    } else {
+      //      print("  💟 B height est inferieur a :  width / 2 💟")
+      //      print("  💟🐝\(#line)💟▓▒░ height - width ░▒▓💟",bounds.height, bounds.width / 2,"💟")
+      //      print("  💟🐝\(#line)💟▓▒░ radius vaut  ░▒▓💟",bounds.height,"💟")
+      radius = (bounds.height) * 0.66
+    }
+    
+    print(radius)
+    
+    let containerLayer = CATextLayer()
+    let marginHeight = (radius * 0.30)
+//    containerLayer.frame = CGRect(x: (self.frame.width / 2) - (radius / 2),
+//                             y: (self.frame.height / 2) + marginHeight,
+//                             width: radius,
+//                             height: radius - marginHeight)
+    containerLayer.frame = CGRect(x: (self.frame.width / 2) - (radius / 2),
+                                  y: mask.frame.size.height - (radius) + marginHeight,
+    width: radius,
+    height: radius - marginHeight)
+    
+    containerLayer.backgroundColor = UIColor.orange.cgColor
+    mask.addSublayer(containerLayer)
+    
+    let containerNumber = CATextLayer()
+    containerNumber.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: containerLayer.frame.size.width, height: containerLayer.frame.size.height / 2))
+    containerNumber.backgroundColor = UIColor.red.cgColor
+    containerNumber.string = "23.5"
+    containerNumber.alignmentMode = .center
+    containerLayer.addSublayer(containerNumber)
+    
+    let containerText = CATextLayer()
+    containerText.frame = CGRect(origin: CGPoint(x: 0, y: containerLayer.frame.size.height / 2), size: CGSize(width: containerLayer.frame.size.width, height: containerLayer.frame.size.height / 2))
+    containerText.backgroundColor = UIColor.blue.cgColor
+    containerText.alignmentMode = .center
+    containerText.string = "BMI"
+    containerLayer.addSublayer(containerText)
+  }
+  
   
   private func showMiddlePoint() {
     let middleView = UIView(frame: CGRect(origin: centerPoint, size: CGSize(width: 5, height: 5)))
