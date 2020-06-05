@@ -85,7 +85,7 @@
                                                                 <color key="tintColor" red="0.4201042056" green="0.8065807223" blue="0.8902184367" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <color key="textColor" red="0.23809149860000001" green="0.8183115125" blue="0.90198421480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" keyboardAppearance="light" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
                                                                         <color key="value" red="0.00014883800759999999" green="0.70180302859999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -98,7 +98,7 @@
                                                                 <color key="tintColor" red="0.4201042056" green="0.8065807223" blue="0.8902184367" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <color key="textColor" red="0.22352941179999999" green="0.81960784310000001" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light" enablesReturnKeyAutomatically="YES"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
                                                                         <color key="value" red="0.00014883800759999999" green="0.70180302859999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

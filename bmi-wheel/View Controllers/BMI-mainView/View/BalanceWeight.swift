@@ -16,24 +16,19 @@ class BalanceWeight: UIView {
     let y = self.bounds.size.height
     return CGPoint(x: x, y: y)
   }
-  
-  
+  var positionArrow: Float = 16
+  var oldpositionArrow: Float {
+    return positionArrow
+  }
   
   // MARK: - ⚙️ Init // ✔︎
   override func draw(_ rect: CGRect) {
     super.draw(rect)
-//    makeTextOnRadian()
   }
   override init(frame: CGRect) {
     super.init(frame: frame)
     self.layer.masksToBounds = true
     initBalanceWeight()
-    // set initial position
-    self.arrow.setAnchorPoint(CGPoint(x: 0.5, y: 1))
-    
-    // set de position by default
-    let rotationPosition: CGFloat = CGFloat(CalculNeedle.calculAndScale(imc: 18.5))
-    self.arrow.transform = CATransform3DMakeRotation( .pi * ( rotationPosition - (90)) / 180  , 0, 0, 1)
   }
   required init?(coder: NSCoder) {
     super.init(coder: coder)
@@ -41,9 +36,10 @@ class BalanceWeight: UIView {
   }
   private func initBalanceWeight() {
     //    print("  💟 setUpBalanceWeight 💟")
-    //    layer.backgroundColor = UIColor.gray.cgColor
     buildRadianCircle()
-    showMiddlePoint()
+    makeMiddlePoint()
+    setPositionArrow()
+    setDoubleTap()
   }
   
   // ✘
@@ -56,20 +52,15 @@ class BalanceWeight: UIView {
     makeRadianCircle(angleStart: 5 * .pi / 3, angleEnd: 0,color: UIColor.circleRed.cgColor)
     makeTextOnRadians()
     
-  
     makeArrow()
-    maskRadians()
+    maskRadians() // ✔︎
     makeNumbertOnRadians()
-    
-    
-    
-    bmiView()
+    makebmiTextLabel()  // ✔︎
     
   }
   
   
   // MARK: - Lego
-  
   private func makeRadianCircle(angleStart: CGFloat, angleEnd: CGFloat, color:CGColor = UIColor.orange.cgColor) {
     //    print("\(#line) ▓▓▓▓▓▓▓▓ ( ˘ ³˘)♥ ▓▓▓▓▓▓▓▓  func \(#function)")
     // ✔︎
@@ -259,9 +250,12 @@ class BalanceWeight: UIView {
     mask.path = path.cgPath
   }
   private func makeArrow() {
-    // ✔︎
     // creation
     arrow = CAShapeLayer()
+    
+    // set anchor point for rotation
+    self.arrow.setAnchorPoint(CGPoint(x: 0.5, y: 1))
+    
     // position
     arrow.frame = bounds
     // addition
@@ -274,7 +268,7 @@ class BalanceWeight: UIView {
     
     // you can custom them
     let rangeValueRadiusScale: CGFloat = 0.80 // top of triangle 1.0 = 100% | 0.75 = 75% default
-    let rangeValueBaseTriangleScale: CGFloat = 1 / 2 // base of triangle ( left and right )
+    let rangeValueBaseTriangleScale: CGFloat = 1 / 2 // base of triangle ( left and right ) ratio
     
     // ✔︎
     if bounds.height >= bounds.width / 2 {
@@ -286,17 +280,17 @@ class BalanceWeight: UIView {
     }
     
     let path = UIBezierPath()
-    //    arrow.backgroundColor = UIColor.blue.cgColor
+          // To Debug
+//        arrow.backgroundColor = UIColor.blue.cgColor
+//        arrow.fillColor = UIColor.black.cgColor
     arrow.fillColor = UIColor.white.cgColor
     path.move(to: CGPoint(x: centerPoint.x - baseTriangleForArrow, y: bounds.height)) // ✘
     path.addArc(withCenter: centerPoint, radius: radius, startAngle: 3 * .pi / 2 , endAngle: 3 * .pi / 2, clockwise: true)
     path.addLine(to: CGPoint(x: centerPoint.x + baseTriangleForArrow, y: bounds.height)) // ✘
     arrow.path = path.cgPath
     
-    
   }
-  
-  private func bmiView() {
+  private func makebmiTextLabel() {
     let mask = CAShapeLayer()
     mask.frame = self.bounds
     mask.fillColor = UIColor.blue.cgColor
@@ -340,41 +334,91 @@ class BalanceWeight: UIView {
     containerNumber.alignmentMode = .center
     containerLayer.addSublayer(containerNumber)
     
+    
+    
     let containerText = CATextLayer()
     containerText.frame = CGRect(origin: CGPoint(x: 0, y: containerLayer.frame.size.height / 2), size: CGSize(width: containerLayer.frame.size.width, height: containerLayer.frame.size.height / 2))
     containerText.backgroundColor = UIColor.blue.cgColor
     containerText.alignmentMode = .center
     containerText.string = "BMI"
     containerLayer.addSublayer(containerText)
+    
   }
-  
-  
-  private func showMiddlePoint() {
+  private func makeMiddlePoint() {
     let middleView = UIView(frame: CGRect(origin: centerPoint, size: CGSize(width: 5, height: 5)))
     middleView.backgroundColor = UIColor.white
     addSubview(middleView)
   }
   // source  https://gist.github.com/cemolcay/9525d28a203da83d333545fc6e0d4371
   
-  //action
+  // MARK: - SetUp
+  private func setPositionArrow(){
+    let rotationPosition: CGFloat = CGFloat(CalculNeedle.calculAndScale(imc: Float(self.positionArrow)))
+    self.arrow.transform = CATransform3DMakeRotation( .pi * ( rotationPosition - (90)) / 180  , 0, 0, 1)
+  }
+
+  
+  
+  
+  // #debug Mode
+  private func setDoubleTap(){
+    let tap = UITapGestureRecognizer(target: self, action: #selector(self.toto))
+    tap.numberOfTapsRequired = 2
+    self.addGestureRecognizer(tap)
+  }
+  // #debug Mode
+  @objc func toto(){
+    print("toto")
+    
+    self.animationArrowWith(bmiValue: 16.0)
+    //    let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+    //    animation.keyPath = "transform.rotation"
+    //    animation.duration = 3.0
+    //    animation.byValue = Double.pi * 2
+    //    animation.isRemovedOnCompletion = false
+    //    arrow.add(animation, forKey: nil)
+    //      animationArrowWith(bmiValue: 16)
+  }
+  // MARK: - 🖐 Handle U
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     print("began")
-    animationArrow()
-  }
-  override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    
-  }
-  /// animation for arrow
-  func animationArrow(with rotation: CGFloat = .pi) {
-    // ⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬ animation
-    self.arrow.setAnchorPoint(CGPoint(x: 0.5, y: 1))
-    self.arrow.transform = CATransform3DMakeRotation(.pi * rotation / 180 , 0, 0, 1)
-    //    UIView.animate(withDuration: 3) {
-    //
-    //    }
+    self.animationArrowWith(bmiValue: 40)
   }
   
-  func scaleNeedle(imc : Float) -> Float{
+  // MARK: - /// animation for arrow
+  private func animationArrowWith(bmiValue bmi: CGFloat) {
+    let scalingArrowPositionByBMIvalue: CGFloat = CGFloat(CalculNeedle.calculAndScale(imc: Float(bmi))) // keep
+    let newAngleFromBMI = .pi * ( scalingArrowPositionByBMIvalue - (90)) / 180
+        //    self.arrow.transform = CATransform3DMakeRotation( newAngleFromBMI , 0, 0, 1)  // keep
+    
+    CATransaction.begin()
+    CATransaction.setCompletionBlock {
+      print("Hidden")
+      self.arrow.transform = CATransform3DMakeRotation( newAngleFromBMI , 0, 0, 1)  // keep
+    }
+    
+    // animation arrow
+    let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+    animation.fillMode = .forwards
+    animation.isRemovedOnCompletion = false
+    animation.keyPath = "transform.rotation.z"
+    animation.duration = 1.0
+    animation.toValue = newAngleFromBMI
+    arrow.add(animation, forKey: "rot")
+    positionArrow = Float(newAngleFromBMI)
+
+    CATransaction.commit()
+  }
+  
+
+  
+//  private func animationArrowWith(bmiValue bmi: CGFloat) {
+//    print("AnimationArrow")
+//    let rotationPosition: CGFloat = CGFloat(CalculNeedle.calculAndScale(imc: Float(bmi)))
+//      self.arrow.transform = CATransform3DMakeRotation( .pi * ( rotationPosition - (90)) / 180  , 0, 0, 1)
+//  }
+  
+  private func scaleNeedle(imc : Float) -> Float{
     let a: [Float] = [16.0, 18.5]
     let b: [Float] = [18.5, 25]
     let c: [Float] = [25, 40]
@@ -421,16 +465,15 @@ class BalanceWeight: UIView {
   }
 }
 
+
 extension UIColor {
   static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
     return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
   }
-  
   static let circleRed = UIColor.rgb(red: 188, green: 46, blue: 54)
   static let circleGreen = UIColor.rgb(red: 0, green: 188, blue: 77)
   static let circleBlue = UIColor.rgb(red: 0, green: 204, blue: 229)
 }
-
 extension UIView {
   func setAnchorPoint(_ newAnchorPoint: CGPoint) {
     var newPoint = CGPoint(x: bounds.size.width * newAnchorPoint.x, y: bounds.size.height * newAnchorPoint.y)
@@ -451,7 +494,6 @@ extension UIView {
     layer.anchorPoint = newAnchorPoint
   }
 }
-
 extension CALayer {
   func setAnchorPoint(_ newAnchorPoint: CGPoint) {
     var newPoint = CGPoint(x: self.bounds.size.width * newAnchorPoint.x,
@@ -471,7 +513,6 @@ extension CALayer {
     self.anchorPoint = newAnchorPoint
   }
 }
-
-
-// -----------
-
+extension BalanceWeight {
+  
+}
