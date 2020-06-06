@@ -15,6 +15,8 @@ class MainViewController: UIViewController {
   @IBOutlet weak var age: UITextField!
   @IBOutlet weak var weight: UITextField!
   @IBOutlet weak var height: UITextField!
+
+  
   
   
   // Middle container // ✔︎
@@ -77,8 +79,20 @@ extension MainViewController: UITextFieldDelegate {
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     view.endEditing(true)
-  }
+    // est pas vide alors
+    if (!(weight.text! == "") && !(height.text! == "")) {
+      print("1")
+      let imc = Cal.bmi(tall: Int(height.text!)!, weight: Float(weight.text!)!)
+      balanceWeightView.animationArrowWith(bmiValue: CGFloat(imc))
+      
+      print(imc)
+    } else {
+      print("2")
+    }
+    
   
+    
+  }
 }
 
 

@@ -19,6 +19,7 @@
 		937A4326248111A400B0CC4C /* ViewModelTopContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A4325248111A400B0CC4C /* ViewModelTopContainer.swift */; };
 		937EBAD424770AA800B76F5D /* bmi_Translate_Value_bmi_for_needle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EBAD324770AA800B76F5D /* bmi_Translate_Value_bmi_for_needle.swift */; };
 		937EBAE32477146200B76F5D /* CalculNeedle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937EBAE22477146200B76F5D /* CalculNeedle.swift */; };
+		93B8285E248ABE4700F25AFD /* Cal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B8285D248ABE4700F25AFD /* Cal.swift */; };
 		93E4441B24804E8900A0D330 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E4441A24804E8900A0D330 /* GradientView.swift */; };
 		93EA988524894E7300F786B4 /* DrawTextOnArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EA988424894E7300F786B4 /* DrawTextOnArc.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		937EBAD324770AA800B76F5D /* bmi_Translate_Value_bmi_for_needle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bmi_Translate_Value_bmi_for_needle.swift; sourceTree = "<group>"; };
 		937EBAD524770AA800B76F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		937EBAE22477146200B76F5D /* CalculNeedle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculNeedle.swift; sourceTree = "<group>"; };
+		93B8285D248ABE4700F25AFD /* Cal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal.swift; sourceTree = "<group>"; };
 		93E4441A24804E8900A0D330 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		93EA988424894E7300F786B4 /* DrawTextOnArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawTextOnArc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 		930CFFC52472E5D000E3E3CC /* bmi-wheel */ = {
 			isa = PBXGroup;
 			children = (
+				93B8285C248AB56B00F25AFD /* Services */,
 				937A43282481286800B0CC4C /* View Controllers */,
 				937EBADF24770DBE00B76F5D /* Storyboard */,
 				93E4441924804E7100A0D330 /* Helper */,
@@ -186,10 +189,18 @@
 				930CFFCA2472E5D000E3E3CC /* MainViewController.swift */,
 				9369A6FD24882A1000B28B1B /* CurveView.swift */,
 				93649B7D2477F73D007BB234 /* BalanceWeight.swift */,
-				937EBAE22477146200B76F5D /* CalculNeedle.swift */,
 				93EA988424894E7300F786B4 /* DrawTextOnArc.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		93B8285C248AB56B00F25AFD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				937EBAE22477146200B76F5D /* CalculNeedle.swift */,
+				93B8285D248ABE4700F25AFD /* Cal.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		93E4441924804E7100A0D330 /* Helper */ = {
@@ -308,6 +319,7 @@
 				930CFFCB2472E5D000E3E3CC /* MainViewController.swift in Sources */,
 				930CFFC72472E5D000E3E3CC /* AppDelegate.swift in Sources */,
 				93E4441B24804E8900A0D330 /* GradientView.swift in Sources */,
+				93B8285E248ABE4700F25AFD /* Cal.swift in Sources */,
 				930CFFC92472E5D000E3E3CC /* SceneDelegate.swift in Sources */,
 				937EBAE32477146200B76F5D /* CalculNeedle.swift in Sources */,
 				937A4326248111A400B0CC4C /* ViewModelTopContainer.swift in Sources */,

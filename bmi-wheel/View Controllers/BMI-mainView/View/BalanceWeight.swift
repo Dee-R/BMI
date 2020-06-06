@@ -10,16 +10,15 @@ import UIKit
 
 class BalanceWeight: UIView {
   // MARK: - 🉑 Setting
-  var arrow: CAShapeLayer! = nil
-  var centerPoint: CGPoint {
+  private var arrow: CAShapeLayer! = nil
+  private var centerPoint: CGPoint {
     let x = self.bounds.size.width / 2
     let y = self.bounds.size.height
     return CGPoint(x: x, y: y)
   }
-  var positionArrow: Float = 16
-  var oldpositionArrow: Float {
-    return positionArrow
-  }
+  private let containerNumber = CATextLayer()
+  private var positionArrow: Float = 16
+  
   
   // MARK: - ⚙️ Init // ✔︎
   override func draw(_ rect: CGRect) {
@@ -55,8 +54,7 @@ class BalanceWeight: UIView {
     makeArrow()
     maskRadians() // ✔︎
     makeNumbertOnRadians()
-    makebmiTextLabel()  // ✔︎
-    
+    makeBmiTextLabel()  // ✔︎
   }
   
   
@@ -290,7 +288,7 @@ class BalanceWeight: UIView {
     arrow.path = path.cgPath
     
   }
-  private func makebmiTextLabel() {
+  private func makeBmiTextLabel() {
     let mask = CAShapeLayer()
     mask.frame = self.bounds
     mask.fillColor = UIColor.blue.cgColor
@@ -327,13 +325,12 @@ class BalanceWeight: UIView {
     containerLayer.backgroundColor = UIColor.orange.cgColor
     mask.addSublayer(containerLayer)
     
-    let containerNumber = CATextLayer()
+    
     containerNumber.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: containerLayer.frame.size.width, height: containerLayer.frame.size.height / 2))
     containerNumber.backgroundColor = UIColor.red.cgColor
     containerNumber.string = "23.5"
     containerNumber.alignmentMode = .center
     containerLayer.addSublayer(containerNumber)
-    
     
     
     let containerText = CATextLayer()
@@ -368,16 +365,8 @@ class BalanceWeight: UIView {
   }
   // #debug Mode
   @objc func toto(){
-    print("toto")
-    
+    print("\(#line) ▓▓▓▓▓▓▓▓ ( ˘ ³˘)♥ ▓▓▓▓▓▓▓▓ \(String(describing: self)) => func \(#function)")
     self.animationArrowWith(bmiValue: 16.0)
-    //    let animation = CABasicAnimation(keyPath: "transform.rotation.z")
-    //    animation.keyPath = "transform.rotation"
-    //    animation.duration = 3.0
-    //    animation.byValue = Double.pi * 2
-    //    animation.isRemovedOnCompletion = false
-    //    arrow.add(animation, forKey: nil)
-    //      animationArrowWith(bmiValue: 16)
   }
   // MARK: - 🖐 Handle U
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -386,7 +375,7 @@ class BalanceWeight: UIView {
   }
   
   // MARK: - /// animation for arrow
-  private func animationArrowWith(bmiValue bmi: CGFloat) {
+   func animationArrowWith(bmiValue bmi: CGFloat) {
     let scalingArrowPositionByBMIvalue: CGFloat = CGFloat(CalculNeedle.calculAndScale(imc: Float(bmi))) // keep
     let newAngleFromBMI = .pi * ( scalingArrowPositionByBMIvalue - (90)) / 180
         //    self.arrow.transform = CATransform3DMakeRotation( newAngleFromBMI , 0, 0, 1)  // keep
@@ -395,6 +384,7 @@ class BalanceWeight: UIView {
     CATransaction.setCompletionBlock {
       print("Hidden")
       self.arrow.transform = CATransform3DMakeRotation( newAngleFromBMI , 0, 0, 1)  // keep
+      self.containerNumber.string = "\(newAngleFromBMI)"
     }
     
     // animation arrow
@@ -402,15 +392,17 @@ class BalanceWeight: UIView {
     animation.fillMode = .forwards
     animation.isRemovedOnCompletion = false
     animation.keyPath = "transform.rotation.z"
-    animation.duration = 1.0
+    animation.duration = 0.3
     animation.toValue = newAngleFromBMI
     arrow.add(animation, forKey: "rot")
     positionArrow = Float(newAngleFromBMI)
 
+    
     CATransaction.commit()
+    
+    
+    
   }
-  
-
   
 //  private func animationArrowWith(bmiValue bmi: CGFloat) {
 //    print("AnimationArrow")
@@ -465,7 +457,6 @@ class BalanceWeight: UIView {
   }
 }
 
-
 extension UIColor {
   static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
     return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
@@ -514,5 +505,4 @@ extension CALayer {
   }
 }
 extension BalanceWeight {
-  
 }
